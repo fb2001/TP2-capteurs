@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#1565C0"> <!-- Effet d’appui bleu foncé -->
+
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="25dp"/> <!-- Coins arrondis -->
+            <gradient
+                android:angle="90"
+                android:startColor="#1E88E5"
+                android:endColor="#0D47A1"/>
+            <padding android:left="16dp" android:top="10dp" android:right="16dp" android:bottom="10dp"/>
+        </shape>
+    </item>
+</ripple>
