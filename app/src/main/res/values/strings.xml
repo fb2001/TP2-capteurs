@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Capteurs</string>
+    <string name="proximity_image_description">Image de proximité</string>
+    <string name="proximity_status_far">Objet loin</string>
+    <string name="proximity_status_near">Objet proche</string>
+    <string name="map_api_key">AIzaSyCsH_XE8dFYqd_mFLrHvIAxu78SUOQb1hM</string>
 </resources>

@@ -2,6 +2,7 @@ package com.example.capteurs;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ImageView;
 
@@ -22,7 +23,10 @@ public class MainActivityCaroussel extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recycler);
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("TP2-Capteurs-Fadel-Benomar");
+        toolbar.setBackgroundColor(Color.parseColor("#1976D2"));
 
         ArrayList<Integer> imageList = new ArrayList<>();
         imageList.add(R.drawable.capteurs);
@@ -34,7 +38,6 @@ public class MainActivityCaroussel extends AppCompatActivity {
         imageList.add(R.drawable.geolo);
 
         ImageAdapter adapter = new ImageAdapter(this, imageList);
-        recyclerView.setAdapter(adapter);
         adapter.setOnItemClickListener(new ImageAdapter.OnItemClickListener() {
             @Override
             public void onClick(ImageView imageView, int imageResId, int position) {
@@ -52,20 +55,32 @@ public class MainActivityCaroussel extends AppCompatActivity {
                     case 3:
                         intent = new Intent(MainActivityCaroussel.this, MainActivity4.class);
                         break;
+                    case 4:
+                        intent = new Intent(MainActivityCaroussel.this, MainActivity5.class);
+                        break;
+                    case 5:
+                        intent = new Intent(MainActivityCaroussel.this, MainActivity6.class);
+                        break;
+                    case 6:
+                        intent = new Intent(MainActivityCaroussel.this, MainActivitygeolocalisation.class);
+                        break;
                     default:
                         intent = new Intent(MainActivityCaroussel.this, ImageViewActivity.class);
                         intent.putExtra("image", imageResId);
                         break;
                 }
-                startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(MainActivityCaroussel.this, imageView, "image").toBundle());
+                startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(
+                        MainActivityCaroussel.this, imageView, "image").toBundle());
             }
         });
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        // Configuration du layout manager avec orientation horizontale
+        LinearLayoutManager layoutManager = new LinearLayoutManager(
+                this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
         // Ajouter une décoration pour l'espacement entre les éléments
-        recyclerView.addItemDecoration(new HorizontalSpaceItemDecoration(16));
+        recyclerView.addItemDecoration(new HorizontalSpaceItemDecoration(32));
         recyclerView.setAdapter(adapter);
     }
 }
