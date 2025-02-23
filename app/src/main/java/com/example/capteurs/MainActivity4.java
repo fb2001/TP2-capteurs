@@ -32,25 +32,27 @@ public class MainActivity4 extends AppCompatActivity implements GestureDetector.
         // Initialisation des vues
         directionText = findViewById(R.id.directionText);
         layout = findViewById(R.id.mainLayout);
-        backButton = findViewById(R.id.backButton);
         toolbar = findViewById(R.id.toolbar);
 
         // Configurer la Toolbar
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayShowTitleEnabled(false); // Masquer le titre par défaut
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Afficher le bouton de retour
+            getSupportActionBar().setDisplayShowHomeEnabled(true); // Activer le clic sur le bouton
         }
 
         // Initialisation du GestureDetector
         gestureDetector = new GestureDetector(this, this);
 
         // Gestion du clic sur le bouton de retour
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish(); // Ferme l'activité actuelle et retourne à la précédente
-            }
-        });
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        // Gérer le clic sur le bouton de retour dans la Toolbar
+        onBackPressed(); // Retour à l'activité précédente
+        return true;
     }
 
     @Override

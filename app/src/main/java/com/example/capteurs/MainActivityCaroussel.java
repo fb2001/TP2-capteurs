@@ -34,7 +34,8 @@ public class MainActivityCaroussel extends AppCompatActivity {
         imageList.add(R.drawable.accele);
         imageList.add(R.drawable.mouv);
         imageList.add(R.drawable.secouer);
-        imageList.add(R.drawable.proxi);
+        imageList.add(R.drawable.proximitee);
+        imageList.add(R.drawable.latitude);
         imageList.add(R.drawable.geolo);
 
         ImageAdapter adapter = new ImageAdapter(this, imageList);
@@ -63,6 +64,9 @@ public class MainActivityCaroussel extends AppCompatActivity {
                         break;
                     case 6:
                         intent = new Intent(MainActivityCaroussel.this, MainActivitygeolocalisation.class);
+                        break;
+                    case 7:
+                        intent = new Intent(MainActivityCaroussel.this, MainActivity7.class);
                         break;
                     default:
                         intent = new Intent(MainActivityCaroussel.this, ImageViewActivity.class);

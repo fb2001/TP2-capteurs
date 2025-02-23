@@ -25,7 +25,7 @@ public class MainActivitygeolocalisation extends AppCompatActivity {
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1001;
     private FusedLocationProviderClient fusedLocationClient;
-    private TextView textViewLocation;
+    private TextView txtLatitudeValue, txtLongitudeValue;
     private LocationCallback locationCallback;
 
     @Override
@@ -49,7 +49,8 @@ public class MainActivitygeolocalisation extends AppCompatActivity {
         });
 
         // Initialiser les vues
-        textViewLocation = findViewById(R.id.textViewLocation);
+        txtLatitudeValue = findViewById(R.id.txtLatitudeValue);
+        txtLongitudeValue = findViewById(R.id.txtLongitudeValue);
 
 
         // Initialiser FusedLocationProviderClient
@@ -90,7 +91,8 @@ public class MainActivitygeolocalisation extends AppCompatActivity {
                         if (location != null) {
                             double latitude = location.getLatitude();
                             double longitude = location.getLongitude();
-                            textViewLocation.setText("Latitude: " + latitude + "\nLongitude: " + longitude);
+                            txtLatitudeValue.setText(String.format("%.6f", latitude));
+                            txtLongitudeValue.setText(String.format("%.6f", longitude));
                         } else {
                             requestLocationUpdates();
                         }
@@ -112,7 +114,8 @@ public class MainActivitygeolocalisation extends AppCompatActivity {
                 for (Location location : locationResult.getLocations()) {
                     double latitude = location.getLatitude();
                     double longitude = location.getLongitude();
-                    textViewLocation.setText("Latitude: " + latitude + "\nLongitude: " + longitude);
+                    txtLatitudeValue.setText(String.format("%.6f", latitude));
+                    txtLongitudeValue.setText(String.format("%.6f", longitude));
                 }
             }
         };

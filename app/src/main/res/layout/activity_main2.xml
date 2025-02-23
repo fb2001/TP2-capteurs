@@ -3,7 +3,9 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    xmlns:app="http://schemas.android.com/tools"
+    android:background="#F5F5F5"
+    app:ignore="NamespaceTypo">
 
     <!-- Image de fond -->
     <ImageView
@@ -13,6 +15,8 @@
         android:scaleType="centerCrop"
         android:src="@drawable/logo_universite_montpellier"
         android:alpha="0.15" />
+
+    <!-- Toolbar avec bouton de retour -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -21,18 +25,23 @@
         android:elevation="14dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        android:backgroundTint="@color/design_default_color_secondary_variant">
+        android:backgroundTint="@color/design_default_color_secondary_variant"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"> <!-- Icône de retour -->
 
+        <!-- Titre centré -->
         <TextView
             android:id="@+id/textViewDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Capteur"
+            android:text=" manquants"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_gravity="center"/>
     </androidx.appcompat.widget.Toolbar>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -40,8 +49,7 @@
         android:gravity="center"
         android:padding="20dp">
 
-
-
+        <!-- CardView pour afficher les détails des capteurs -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -65,23 +73,6 @@
                 android:textAlignment="viewStart"/>
         </androidx.cardview.widget.CardView>
 
-        <!-- Bouton Retour -->
-        <Button
-            android:id="@+id/buttonretour"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_background"
-            android:paddingStart="32dp"
-            android:paddingTop="16dp"
-            android:paddingEnd="32dp"
-            android:paddingBottom="16dp"
-            android:text="Retour"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:fontFamily="sans-serif-medium"
-            android:elevation="4dp"
-            android:layout_marginTop="50dp"/>
 
     </LinearLayout>
-
 </FrameLayout>

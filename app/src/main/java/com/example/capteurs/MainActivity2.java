@@ -1,27 +1,36 @@
 package com.example.capteurs;
 
-import android.app.Activity;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
-public class MainActivity2 extends Activity {
+import com.example.capteurs.R;
+
+public class MainActivity2 extends AppCompatActivity {
 
     private SensorManager sensorManager;
     private TextView statusTextView;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+        // Initialiser la toolbar
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        TextView textViewDetails = (TextView) findViewById(R.id.textViewDetails);
-        textViewDetails.setText("Capteurs indisponibles :");
-
+        // Activer le bouton de retour dans la toolbar
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
         // Initialisation des éléments de l'interface
         statusTextView = findViewById(R.id.statusTextView);
@@ -31,14 +40,16 @@ public class MainActivity2 extends Activity {
 
         // Vérification des capteurs manquants
         checkMissingSensors();
-
-        Button button = (Button) findViewById(R.id.buttonretour);
-        button.setOnClickListener(v -> finish());
-        button.setBackgroundColor(0xff2196F3);
-
-
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     private void checkMissingSensors() {
         StringBuilder missingSensors = new StringBuilder();
@@ -48,7 +59,6 @@ public class MainActivity2 extends Activity {
                 Sensor.TYPE_GYROSCOPE,
                 Sensor.TYPE_LIGHT,
                 Sensor.TYPE_MAGNETIC_FIELD,
-                Sensor.TYPE_ORIENTATION,
                 Sensor.TYPE_PRESSURE,
                 Sensor.TYPE_PROXIMITY,
                 Sensor.TYPE_AMBIENT_TEMPERATURE,
@@ -78,7 +88,6 @@ public class MainActivity2 extends Activity {
         }
     }
 
-
     private String getSensorName(int sensorType) {
         switch (sensorType) {
             case Sensor.TYPE_ACCELEROMETER: return "Accéléromètre";
@@ -95,7 +104,6 @@ public class MainActivity2 extends Activity {
             case Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR: return "Rotation géomagnétique";
             case Sensor.TYPE_STEP_COUNTER: return "Compteur de pas";
             case Sensor.TYPE_STEP_DETECTOR: return "Détecteur de pas";
-            case Sensor.TYPE_ORIENTATION: return "Orientation";
             case Sensor.TYPE_HEART_RATE: return "Fréquence cardiaque";
             default: return "Inconnu";
         }

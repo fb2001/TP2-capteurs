@@ -34,6 +34,12 @@ public class MainActivity5 extends AppCompatActivity implements SensorEventListe
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Activer le bouton de retour dans la toolbar
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Afficher le bouton de retour
+            getSupportActionBar().setDisplayShowHomeEnabled(true); // Activer le clic sur le bouton
+        }
+
         // Initialiser le TextView
         textViewFlashStatus = findViewById(R.id.textViewFlashStatus);
 
@@ -52,6 +58,13 @@ public class MainActivity5 extends AppCompatActivity implements SensorEventListe
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        // Gérer le clic sur le bouton de retour
+        onBackPressed(); // Retour à l'activité précédente
+        return true;
     }
 
     @Override

@@ -25,48 +25,49 @@
             android:layout_height="wrap_content"
             android:text="Proximité"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:layout_gravity="center"/>
     </androidx.appcompat.widget.Toolbar>
 
-    <!-- Image de fond -->
+    <!-- Image de fond floutée pour un meilleur effet visuel -->
     <ImageView
         android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/logo_universite_montpellier"
-        android:alpha="0.15"
+        android:alpha="0.10"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- ImageView pour afficher l'image en fonction de la proximité -->
+    <!-- ImageView avec effet d'ombre -->
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_centerInParent="true"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
         android:src="@drawable/loin"
         android:contentDescription="@string/proximity_image_description"
+        android:elevation="8dp"
+        android:background="@drawable/backrond"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="140dp"/>
 
+    <!-- Texte stylisé -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imageView"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:text="@string/proximity_status_far"
-        android:textSize="18sp"
-        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textColor="#333333"
+        android:textStyle="bold"
+        android:padding="8dp"
         app:layout_constraintTop_toBottomOf="@id/imageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

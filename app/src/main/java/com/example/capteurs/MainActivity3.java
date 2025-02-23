@@ -8,18 +8,29 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity3 extends AppCompatActivity implements SensorEventListener {
 
     private AccelerometerView3 accelerometerView;  // Référence à la vue personnalisée
     private TextView txtValues;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
+
+        // Initialiser la toolbar
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Activer le bouton de retour dans la toolbar
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Afficher le bouton de retour
+            getSupportActionBar().setDisplayShowHomeEnabled(true); // Activer le clic sur le bouton
+        }
 
         SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 
@@ -36,9 +47,13 @@ public class MainActivity3 extends AppCompatActivity implements SensorEventListe
             Toast.makeText(this, "L'Accelerometer n'est pas dispo", Toast.LENGTH_SHORT).show();
         }
 
-        Button buttonretour = (Button) findViewById(R.id.buttonretour);
-        buttonretour.setOnClickListener(v -> finish());
+    }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        // Gérer le clic sur le bouton de retour dans la Toolbar
+        onBackPressed(); // Retour à l'activité précédente
+        return true;
     }
 
     @Override
