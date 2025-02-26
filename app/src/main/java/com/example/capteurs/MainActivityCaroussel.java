@@ -37,6 +37,8 @@ public class MainActivityCaroussel extends AppCompatActivity {
         imageList.add(R.drawable.proximitee);
         imageList.add(R.drawable.latitude);
         imageList.add(R.drawable.geolo);
+        imageList.add(R.drawable.pays);
+        imageList.add(R.drawable.pays_copie);
 
         ImageAdapter adapter = new ImageAdapter(this, imageList);
         adapter.setOnItemClickListener(new ImageAdapter.OnItemClickListener() {
@@ -68,6 +70,13 @@ public class MainActivityCaroussel extends AppCompatActivity {
                     case 7:
                         intent = new Intent(MainActivityCaroussel.this, MainActivity7.class);
                         break;
+                    case 8:
+                        intent = new Intent(MainActivityCaroussel.this, MainActivityFragex1.class);
+                        break;
+                    case 9:
+                        intent = new Intent(MainActivityCaroussel.this, MainActivityFragex2.class);
+                        break;
+                    case 10:
                     default:
                         intent = new Intent(MainActivityCaroussel.this, ImageViewActivity.class);
                         intent.putExtra("image", imageResId);

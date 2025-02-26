@@ -46,7 +46,9 @@
         <activity android:name=".MainActivity6"/>
         <activity android:name=".MainActivitygeolocalisation"/>
         <activity android:name=".MainActivity7"/>
-
+        <activity android:name=".MainActivityFragex1"/>
+        <activity android:name=".CountryDetailActivity" />
+        <activity android:name=".MainActivityFragex2"/>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/map_api_key" />
