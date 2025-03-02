@@ -31,14 +31,10 @@
             android:layout_gravity="center"/>
     </androidx.appcompat.widget.Toolbar>
 
-    <!-- Le contenu de votre FrameLayout -->
-<FrameLayout
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:layout_marginTop="?attr/actionBarSize">  <!-- Pour que le contenu commence sous la Toolbar -->
 
-<!-- Ajoutez ici votre contenu (TextView, Buttons, Images, etc.) -->
-
-</FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize" />
 
     </FrameLayout>

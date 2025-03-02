@@ -7,7 +7,6 @@
     android:background="#F5F5F5"
     app:ignore="NamespaceTypo">
 
-    <!-- Image de fond -->
     <ImageView
         android:id="@+id/backgroundLogo"
         android:layout_width="match_parent"
@@ -16,7 +15,6 @@
         android:src="@drawable/logo_universite_montpellier"
         android:alpha="0.15" />
 
-    <!-- Toolbar avec bouton de retour -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -28,9 +26,8 @@
         android:backgroundTint="@color/design_default_color_secondary_variant"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"> <!-- Icône de retour -->
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Titre centré -->
         <TextView
             android:id="@+id/textViewDetails"
             android:layout_width="wrap_content"
@@ -49,7 +46,6 @@
         android:gravity="center"
         android:padding="20dp">
 
-        <!-- CardView pour afficher les détails des capteurs -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

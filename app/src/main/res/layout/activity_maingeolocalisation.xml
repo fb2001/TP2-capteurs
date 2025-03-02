@@ -5,9 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"> <!-- Fond blanc pour la clarté -->
+    android:background="@android:color/white">
 
-    <!-- Toolbar avec bouton de retour -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -31,7 +30,6 @@
             android:layout_gravity="center"/>
     </androidx.appcompat.widget.Toolbar>
 
-    <!-- Image de fond avec transparence -->
     <ImageView
         android:id="@+id/backgroundLogo"
         android:layout_width="match_parent"
@@ -44,7 +42,6 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Titre principal -->
     <TextView
         android:id="@+id/txtTitle"
         android:layout_width="wrap_content"
@@ -63,7 +60,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Cadre stylisé pour afficher les coordonnées -->
     <androidx.cardview.widget.CardView
         android:layout_width="320dp"
     android:layout_height="180dp"
@@ -75,15 +71,13 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent">
 
-    <!-- LinearLayout horizontal pour afficher latitude et longitude côte à côte -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:gravity="center"
-        android:padding="24dp"> <!-- Padding augmenté -->
+        android:padding="24dp">
 
-        <!-- Latitude -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -110,14 +104,12 @@
             android:layout_marginTop="12dp"/>
         </LinearLayout>
 
-        <!-- Séparateur vertical -->
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="#E0E0E0"
-            android:layout_marginHorizontal="24dp"/> <!-- Marge augmentée -->
+            android:layout_marginHorizontal="24dp"/>
 
-        <!-- Longitude -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"

@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
-    <!-- Toolbar avec bouton de retour -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -30,7 +29,6 @@
             android:layout_gravity="center"/>
     </androidx.appcompat.widget.Toolbar>
 
-    <!-- Image de fond avec transparence -->
     <ImageView
         android:id="@+id/backgroundLogo"
         android:layout_width="match_parent"
@@ -43,7 +41,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Conteneur pour les détails du pays -->
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -65,14 +62,12 @@
             android:orientation="vertical"
             android:padding="24dp">
 
-            <!-- Image du pays -->
             <ImageView
                 android:id="@+id/country_image"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"/>
 
-            <!-- Nom du pays -->
             <TextView
                 android:id="@+id/country_name"
                 android:layout_width="wrap_content"
@@ -82,7 +77,6 @@
                 android:gravity="center"
                 android:layout_marginTop="16dp"/>
 
-            <!-- Description du pays -->
             <TextView
                 android:id="@+id/country_description"
                 android:layout_width="wrap_content"

@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
-    <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -30,7 +29,6 @@
             android:layout_gravity="center"/>
     </androidx.appcompat.widget.Toolbar>
 
-    <!-- Image de fond floutée pour un meilleur effet visuel -->
     <ImageView
         android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
@@ -43,7 +41,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- ImageView avec effet d'ombre -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="220dp"
@@ -57,7 +54,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="140dp"/>
 
-    <!-- Texte stylisé -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"

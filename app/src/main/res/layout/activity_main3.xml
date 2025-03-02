@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"> <!-- Fond blanc pour la clarté -->
+    android:background="@android:color/white">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -30,7 +30,6 @@
             android:layout_gravity="center"/>
     </androidx.appcompat.widget.Toolbar>
 
-    <!-- Image de fond avec transparence -->
     <ImageView
         android:id="@+id/backgroundLogo"
         android:layout_width="match_parent"
@@ -43,7 +42,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Titre principal -->
     <TextView
         android:id="@+id/txtValues"
         android:layout_width="wrap_content"
@@ -62,7 +60,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Cadre stylisé pour l’accéléromètre -->
     <androidx.cardview.widget.CardView
         android:layout_width="280dp"
         android:layout_height="280dp"
@@ -74,7 +71,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Vue personnalisée de l'accéléromètre -->
         <com.example.capteurs.AccelerometerView3
             android:id="@+id/accelerometerView"
             android:layout_width="match_parent"
