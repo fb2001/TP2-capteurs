@@ -28,30 +28,20 @@ public class MainActivity4 extends AppCompatActivity implements GestureDetector.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
-
-        // Initialisation des vues
         directionText = findViewById(R.id.directionText);
         layout = findViewById(R.id.mainLayout);
         toolbar = findViewById(R.id.toolbar);
-
-        // Configurer la Toolbar
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Afficher le bouton de retour
-            getSupportActionBar().setDisplayShowHomeEnabled(true); // Activer le clic sur le bouton
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-
-        // Initialisation du GestureDetector
         gestureDetector = new GestureDetector(this, this);
-
-        // Gestion du clic sur le bouton de retour
-
     }
 
     @Override
     public boolean onSupportNavigateUp() {
-        // Gérer le clic sur le bouton de retour dans la Toolbar
-        onBackPressed(); // Retour à l'activité précédente
+        onBackPressed();
         return true;
     }
 
@@ -65,32 +55,29 @@ public class MainActivity4 extends AppCompatActivity implements GestureDetector.
         float diffX = e2.getX() - e1.getX();
         float diffY = e2.getY() - e1.getY();
 
-        if (Math.abs(diffX) > Math.abs(diffY)) {  // Mouvement horizontal
+        if (Math.abs(diffX) > Math.abs(diffY)) {
             if (diffX > 0) {
-                showDirection("➡️ Droite", "#2196F3"); // Bleu
+                showDirection("➡️ Droite", "#2196F3");
             } else {
-                showDirection("⬅️ Gauche", "#F44336"); // Rouge
+                showDirection("⬅️ Gauche", "#F44336");
             }
-        } else {  // Mouvement vertical
+        } else {
             if (diffY > 0) {
-                showDirection("⬇️ Bas", "#4CAF50"); // Vert
+                showDirection("⬇️ Bas", "#4CAF50");
             } else {
-                showDirection("⬆️ Haut", "#FFEB3B"); // Jaune
+                showDirection("⬆️ Haut", "#FFEB3B");
             }
         }
         return true;
     }
 
     private void showDirection(String text, String color) {
-        // Animation de fondu
         AlphaAnimation fade = new AlphaAnimation(0.3f, 1.0f);
         fade.setDuration(500);
         directionText.startAnimation(fade);
-
-        // Animation de zoom
         ScaleAnimation zoom = new ScaleAnimation(
-                1.0f, 1.2f,  // Zoom avant
-                1.0f, 1.2f,  // Zoom avant
+                1.0f, 1.2f,
+                1.0f, 1.2f,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f
         );
@@ -98,8 +85,6 @@ public class MainActivity4 extends AppCompatActivity implements GestureDetector.
         zoom.setRepeatCount(1);
         zoom.setRepeatMode(Animation.REVERSE);
         directionText.startAnimation(zoom);
-
-        // Animation de translation
         TranslateAnimation translate = new TranslateAnimation(
                 Animation.RELATIVE_TO_SELF, 0.0f,
                 Animation.RELATIVE_TO_SELF, 0.0f,
@@ -108,14 +93,10 @@ public class MainActivity4 extends AppCompatActivity implements GestureDetector.
         );
         translate.setDuration(500);
         directionText.startAnimation(translate);
-
-        // Animation du fond
         ValueAnimator colorAnimator = ValueAnimator.ofObject(new android.animation.ArgbEvaluator(), Color.parseColor("#121212"), Color.parseColor(color));
         colorAnimator.setDuration(500);
         colorAnimator.addUpdateListener(animator -> layout.setBackgroundColor((int) animator.getAnimatedValue()));
         colorAnimator.start();
-
-        // Changer le texte de direction
         directionText.setText(text);
     }
 

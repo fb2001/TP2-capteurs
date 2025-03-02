@@ -44,11 +44,9 @@ public class CountryDetailFragment extends Fragment {
         ImageView imageView = view.findViewById(R.id.country_image);
         TextView nameTextView = view.findViewById(R.id.country_name);
         TextView descriptionTextView = view.findViewById(R.id.country_description);
-
         imageView.setImageResource(image);
         nameTextView.setText(name);
         descriptionTextView.setText(description);
-
         return view;
     }
 }

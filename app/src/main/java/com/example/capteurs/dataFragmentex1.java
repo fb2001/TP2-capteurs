@@ -22,7 +22,6 @@ public class dataFragmentex1 extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         dataholder = new ArrayList<>();
 
-        // Ajouter les pays à la liste
         datamodelex1 pays1 = new datamodelex1(R.drawable.france, "France", "La France, pays d'Europe de l'Ouest, est célèbre pour sa culture, sa gastronomie et ses paysages variés.");
         datamodelex1 pays2 = new datamodelex1(R.drawable.espagne, "Espagne", "L'Espagne, située dans la péninsule ibérique, est connue pour ses plages ensoleillées, sa culture vibrante et son patrimoine historique riche.");
         datamodelex1 pays3 = new datamodelex1(R.drawable.portugal, "Portugal", "Le Portugal, situé dans la péninsule ibérique, est réputé pour ses villes historiques, ses plages et sa gastronomie.");
@@ -37,19 +36,12 @@ public class dataFragmentex1 extends Fragment {
         dataholder.add(pays5);
         dataholder.add(pays6);
         dataholder.add(pays7);
-
-        // Créer et configurer l'adaptateur
         Adapterex1frag adapter = new Adapterex1frag(dataholder);
         recyclerView.setAdapter(adapter);
-
-        // Ajouter un écouteur de clics sur les éléments de la liste
         adapter.setOnItemClickListener(new Adapterex1frag.OnItemClickListener() {
             @Override
             public void onClick(int position) {
-                // Récupérer le pays sélectionné
                 datamodelex1 selectedCountry = dataholder.get(position);
-
-                // Lancer l'activité des détails du pays
                 Intent intent = new Intent(getActivity(), CountryDetailActivity.class);
                 intent.putExtra("image", selectedCountry.getImage());
                 intent.putExtra("name", selectedCountry.getTop());

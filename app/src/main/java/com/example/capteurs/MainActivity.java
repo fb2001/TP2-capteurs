@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        //button pour l'exercice 1 (liste des capteurs):
 
         Button btn1 = (Button) findViewById(R.id.buttonlistecapteurs);
         btn1.setOnClickListener(v -> {

@@ -34,8 +34,6 @@ public class SensorDetailActivity1 extends AppCompatActivity {
         Button buttonretour = findViewById(R.id.buttonretour);
         buttonretour.setOnClickListener(v -> finish());
         buttonretour.setBackgroundColor(couleur);
-
-
         textViewDetails.setText(details);
         textViewDetails.setTextColor(couleur);
     }

@@ -18,8 +18,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
 
     public ImageAdapter(Context context, ArrayList<Integer> imageList) {
         this.context = context;
-        this.imageList = imageList;
-    }
+        this.imageList = imageList;}
 
     @NonNull
     @Override
@@ -30,12 +29,9 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        // Charger l'image avec Glide
         Glide.with(context)
-                .load(imageList.get(position)) // Charger l'image à la position donnée
-                .into(holder.imageView); // Afficher l'image dans l'ImageView
-
-        // Définir un écouteur de clic sur l'élément
+                .load(imageList.get(position))
+                .into(holder.imageView);
         holder.itemView.setOnClickListener(v -> {
             if (onItemClickListener != null) {
                 onItemClickListener.onClick(holder.imageView, imageList.get(position), position);
@@ -53,15 +49,12 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.list_item_image);
-        }
+            imageView = itemView.findViewById(R.id.list_item_image);}
     }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
-        this.onItemClickListener = onItemClickListener;
-    }
+        this.onItemClickListener = onItemClickListener;}
 
     public interface OnItemClickListener {
-        void onClick(ImageView imageView, int imageResId, int position);
-    }
+        void onClick(ImageView imageView, int imageResId, int position);}
 }

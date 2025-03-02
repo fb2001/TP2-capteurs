@@ -29,18 +29,12 @@ public class MainActivity7 extends AppCompatActivity implements OnMapReadyCallba
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main7);
-
-        // Initialisation de la carte
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
-
-        // Initialisation du client de localisation
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-
-        // Vérification des permissions de localisation
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
@@ -62,8 +56,6 @@ public class MainActivity7 extends AppCompatActivity implements OnMapReadyCallba
                     == PackageManager.PERMISSION_GRANTED) {
                 googleMap.setMyLocationEnabled(true);
                 googleMap.getUiSettings().setMyLocationButtonEnabled(true);
-
-                // Récupération de la dernière position connue
                 fusedLocationClient.getLastLocation()
                         .addOnSuccessListener(this, new OnSuccessListener<Location>() {
                             @Override
@@ -75,9 +67,7 @@ public class MainActivity7 extends AppCompatActivity implements OnMapReadyCallba
                                 }
                             }
                         });
-            } else {
-                // Demande de permission si elle n'est pas accordée
-                ActivityCompat.requestPermissions(this,
+            } else {ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                         LOCATION_PERMISSION_REQUEST_CODE);
             }

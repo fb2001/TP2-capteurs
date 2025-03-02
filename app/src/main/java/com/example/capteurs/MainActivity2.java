@@ -22,23 +22,14 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        // Initialiser la toolbar
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        // Activer le bouton de retour dans la toolbar
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-
-        // Initialisation des éléments de l'interface
         statusTextView = findViewById(R.id.statusTextView);
-
-        // Initialisation du SensorManager
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-
-        // Vérification des capteurs manquants
         checkMissingSensors();
     }
 
@@ -72,7 +63,6 @@ public class MainActivity2 extends AppCompatActivity {
                 Sensor.TYPE_HEART_RATE,
         };
 
-        // Test de chaque capteur
         for (int sensorType : sensorTypes) {
             Sensor sensor = sensorManager.getDefaultSensor(sensorType);
             if (sensor == null) {

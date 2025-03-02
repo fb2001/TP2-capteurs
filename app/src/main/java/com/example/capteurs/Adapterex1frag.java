@@ -14,12 +14,8 @@ public class Adapterex1frag extends RecyclerView.Adapter<Adapterex1frag.viewhold
     ArrayList<datamodelex1> dataholder;
     private OnItemClickListener listener;
 
-    // Interface pour gérer les clics
-    public interface OnItemClickListener {
-        void onClick(int position);
-    }
+    public interface OnItemClickListener { void onClick(int position);}
 
-    // Méthode pour définir l'écouteur de clics
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
@@ -41,8 +37,6 @@ public class Adapterex1frag extends RecyclerView.Adapter<Adapterex1frag.viewhold
         holder.img.setImageResource(model.getImage());
         holder.top.setText(model.getTop());
         holder.bottom.setText(model.getBottom());
-
-        // Ajouter un écouteur de clics sur l'élément de la liste
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onClick(position);

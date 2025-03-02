@@ -38,10 +38,7 @@ public class SensorAdapter1 extends RecyclerView.Adapter<SensorAdapter1.SensorVi
         Sensor sensor = sensorList.get(position);
         holder.sensorName.setText(sensor.getName());
         holder.sensorIcon.setText(getEmojiForSensorType(sensor.getType()));
-
-        // Génération d'une couleur pseudo-aléatoire basée sur le type de capteur
         final int couleur = getColorForSensorType(sensor.getType());
-
         holder.itemView.setOnClickListener(v -> {
             try {
                 Intent intent = new Intent(context, SensorDetailActivity1.class);
@@ -65,30 +62,28 @@ public class SensorAdapter1 extends RecyclerView.Adapter<SensorAdapter1.SensorVi
     public int getItemCount() {
         return sensorList.size();
     }
-
-    // Méthode pour obtenir une couleur basée sur le type de capteur
     private int getColorForSensorType(int sensorType) {
         switch (sensorType) {
             case Sensor.TYPE_ACCELEROMETER:
-                return Color.rgb(255, 64, 64); // Rouge
+                return Color.rgb(255, 64, 64);
             case Sensor.TYPE_GYROSCOPE:
-                return Color.rgb(64, 64, 255); // Bleu
+                return Color.rgb(64, 64, 255);
             case Sensor.TYPE_LIGHT:
-                return Color.rgb(255, 215, 64); // Jaune
+                return Color.rgb(255, 215, 64);
             case Sensor.TYPE_PRESSURE:
-                return Color.rgb(64, 192, 255); // Bleu clair
+                return Color.rgb(64, 192, 255);
             case Sensor.TYPE_PROXIMITY:
-                return Color.rgb(255, 128, 64); // Orange
+                return Color.rgb(255, 128, 64);
             case Sensor.TYPE_MAGNETIC_FIELD:
-                return Color.rgb(128, 64, 255); // Violet
+                return Color.rgb(128, 64, 255);
             case Sensor.TYPE_AMBIENT_TEMPERATURE:
-                return Color.rgb(255, 64, 192); // Rose
+                return Color.rgb(255, 64, 192);
             case Sensor.TYPE_GRAVITY:
-                return Color.rgb(64, 192, 64); // Vert
+                return Color.rgb(64, 192, 64);
             case Sensor.TYPE_ROTATION_VECTOR:
-                return Color.rgb(192, 64, 192); // Mauve
+                return Color.rgb(192, 64, 192);
             default:
-                return Color.rgb(128, 128, 128); // Gris
+                return Color.rgb(128, 128, 128);
         }
     }
 
@@ -103,29 +98,28 @@ public class SensorAdapter1 extends RecyclerView.Adapter<SensorAdapter1.SensorVi
         }
     }
 
-    // Méthode pour associer un emoji à chaque capteur
     private String getEmojiForSensorType(int sensorType) {
         switch (sensorType) {
             case Sensor.TYPE_ACCELEROMETER:
-                return "⚡"; // Accéléromètre
+                return "⚡";
             case Sensor.TYPE_GYROSCOPE:
-                return "🌀"; // Gyroscope
+                return "🌀";
             case Sensor.TYPE_LIGHT:
-                return "💡"; // Capteur de lumière
+                return "💡";
             case Sensor.TYPE_PRESSURE:
-                return "🌡"; // Baromètre
+                return "🌡";
             case Sensor.TYPE_PROXIMITY:
-                return "📏"; // Proximité
+                return "📏";
             case Sensor.TYPE_MAGNETIC_FIELD:
-                return "🧲"; // Champ magnétique
+                return "🧲";
             case Sensor.TYPE_AMBIENT_TEMPERATURE:
-                return "🔥"; // Température ambiante
+                return "🔥";
             case Sensor.TYPE_GRAVITY:
-                return "🌍"; // Gravité
+                return "🌍";
             case Sensor.TYPE_ROTATION_VECTOR:
-                return "🔄"; // Rotation
+                return "🔄";
             default:
-                return "📡"; // Capteur inconnu
+                return "📡";
         }
     }
 }

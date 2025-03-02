@@ -31,32 +31,21 @@ public class MainActivitygeolocalisation extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maingeolocalisation); // Assurez-vous que c'est le bon fichier XML
-
-        // Configurer la Toolbar
+        setContentView(R.layout.activity_maingeolocalisation);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Bouton de retour
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-
-        // Bouton de retour
         toolbar.setNavigationOnClickListener(v -> {
             Intent intent = new Intent(MainActivitygeolocalisation.this, MainActivityCaroussel.class);
             startActivity(intent);
             finish();
         });
-
-        // Initialiser les vues
         txtLatitudeValue = findViewById(R.id.txtLatitudeValue);
         txtLongitudeValue = findViewById(R.id.txtLongitudeValue);
-
-
-        // Initialiser FusedLocationProviderClient
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-
-        // Vérifier et demander les permissions
         checkLocationPermission();
     }
 
@@ -103,7 +92,7 @@ public class MainActivitygeolocalisation extends AppCompatActivity {
     private void requestLocationUpdates() {
         LocationRequest locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        locationRequest.setInterval(10000); // Mise à jour toutes les 10 secondes
+        locationRequest.setInterval(10000);
 
         locationCallback = new LocationCallback() {
             @Override

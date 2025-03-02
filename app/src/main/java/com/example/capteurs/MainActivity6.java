@@ -63,11 +63,7 @@ public class MainActivity6 extends AppCompatActivity implements SensorEventListe
     public void onSensorChanged(SensorEvent event) {
         if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
             float distance = event.values[0];
-
-            // Afficher les valeurs dans Logcat pour le débogage
             Log.d("ProximitySensor", "Distance détectée : " + distance + " cm, MaxRange : " + proximitySensor.getMaximumRange());
-
-            // Gestion des capteurs binaires (0 = proche, maxRange = loin)
             if (distance == 0) {
                 imageView.setImageResource(R.drawable.proche);
                 textView.setText(R.string.proximity_status_near);
@@ -80,7 +76,6 @@ public class MainActivity6 extends AppCompatActivity implements SensorEventListe
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // Pas besoin de gérer les changements de précision pour un capteur de proximité
     }
 
     @Override

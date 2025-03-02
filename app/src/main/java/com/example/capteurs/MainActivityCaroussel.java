@@ -87,12 +87,9 @@ public class MainActivityCaroussel extends AppCompatActivity {
             }
         });
 
-        // Configuration du layout manager avec orientation horizontale
         LinearLayoutManager layoutManager = new LinearLayoutManager(
                 this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
-
-        // Ajouter une décoration pour l'espacement entre les éléments
         recyclerView.addItemDecoration(new HorizontalSpaceItemDecoration(32));
         recyclerView.setAdapter(adapter);
     }

@@ -29,27 +29,17 @@ public class MainActivity5 extends AppCompatActivity implements SensorEventListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main5);
-
-        // Initialiser la toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        // Activer le bouton de retour dans la toolbar
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Afficher le bouton de retour
             getSupportActionBar().setDisplayShowHomeEnabled(true); // Activer le clic sur le bouton
         }
-
-        // Initialiser le TextView
         textViewFlashStatus = findViewById(R.id.textViewFlashStatus);
-
-        // Initialiser le capteur de mouvement
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         if (sensorManager != null) {
             accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         }
-
-        // Initialiser le gestionnaire de caméra pour le flash
         cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
         try {
             if (cameraManager != null) {
@@ -62,8 +52,7 @@ public class MainActivity5 extends AppCompatActivity implements SensorEventListe
 
     @Override
     public boolean onSupportNavigateUp() {
-        // Gérer le clic sur le bouton de retour
-        onBackPressed(); // Retour à l'activité précédente
+        onBackPressed();
         return true;
     }
 
@@ -87,9 +76,7 @@ public class MainActivity5 extends AppCompatActivity implements SensorEventListe
             float x = event.values[0];
             float y = event.values[1];
             float z = event.values[2];
-
             float acceleration = (x * x + y * y + z * z) / (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
-
             if (acceleration > 2) {
                 long currentTime = System.currentTimeMillis();
                 if (currentTime - lastShakeTime > 1000) {
